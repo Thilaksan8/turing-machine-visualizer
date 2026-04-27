@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turing Machine Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Turing Machine Visualizer</h1>
+    <p class="subtitle">L = { a<sup>n</sup> b<sup>3n</sup> c<sup>m</sup> | n ≥ 1, m ≥ 0 }</p>
+  </header>
+
+  <main>
+    <section class="examples">
+      <span class="label">Try an example:</span>
+      <button class="ex-btn valid" onclick="loadExample('abbb')">abbb ✓</button>
+      <button class="ex-btn valid" onclick="loadExample('aabbbbbb')">aabbbbbb ✓</button>
+      <button class="ex-btn valid" onclick="loadExample('abbbcc')">abbbcc ✓</button>
+      <button class="ex-btn invalid" onclick="loadExample('abb')">abb ✗</button>
+      <button class="ex-btn invalid" onclick="loadExample('abbbbbbb')">abbbbbbb ✗</button>
+    </section>
+
+    <section class="input-row">
+      <input type="text" id="custom-input" placeholder="Type your own: e.g. aabbbbbbc" />
+      <button class="btn" onclick="loadCustom()">Load</button>
+    </section>
+
+    <section class="tape-section">
+      <div id="arrow-row" class="arrow-row"></div>
+      <div id="tape-row" class="tape-row"></div>
+    </section>
+
+    <section class="info-row">
+      <div class="info-card">
+        <span class="info-label">State</span>
+        <span id="state-display" class="state-pill">Q0</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Step</span>
+        <span id="step-display" class="step-num">0</span>
+      </div>
+    </section>
+
+    <div id="msg-box" class="msg-box">Press Step or Run to start the simulation.</div>
+
+    <section class="btn-row">
+      <button class="btn primary" id="btn-step" onclick="doStep()">Step →</button>
+      <button class="btn" id="btn-run" onclick="doRun()">Run</button>
+      <button class="btn" id="btn-pause" onclick="doPause()" disabled>Pause</button>
+      <button class="btn" onclick="doReset()">Reset</button>
+    </section>
+
+    <div class="speed-row">
+      <label>Speed:</label>
+      <input type="range" min="1" max="5" value="3" id="speed-slider" oninput="updateSpeed(this.value)" />
+      <span id="speed-label">Medium</span>
+    </div>
+
+    <section class="legend">
+      <div class="leg-item"><span class="leg-box head-color"></span> Head position</div>
+      <div class="leg-item"><span class="leg-box x-color"></span> X = used 'a'</div>
+      <div class="leg-item"><span class="leg-box y-color"></span> Y = used 'b'</div>
+      <div class="leg-item"><span class="leg-box end-color"></span> $ = blank</div>
+    </section>
+  </main>
+
+  <script src="tm.js"></script>
+  <script src="visualizer.js"></script>
+</body>
+</html>
