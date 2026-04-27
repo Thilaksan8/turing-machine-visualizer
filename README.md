@@ -1,6 +1,6 @@
 # 🖥️ Turing Machine Visualizer
 
-An interactive, browser-based Turing Machine simulator built as part of my **Theory of Computation** coursework at the **University of Mauritius**. Originally designed to recognize a specific formal language, this project is open for collaboration — feel free to extend it for other languages or features!
+An interactive, browser-based Turing Machine simulator built as part of my **Theory of Computing** coursework at the **University of Moratuwa**. Originally designed to recognize a specific formal language, this project is open for collaboration — feel free to extend it for other languages or features!
 
 ## 🔗 Live Demo
 👉 https://Thilaksan8.github.io/turing-machine-visualizer
