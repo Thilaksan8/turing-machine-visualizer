@@ -1,7 +1,7 @@
 let currentInput = "abbb";
 let running = false;
 let timer = null;
-const speedMap = { 1:900, 2:500, 3:250, 4:120, 5:40 };
+const speedMap = { 1: 900, 2: 500, 3: 250, 4: 120, 5: 40 };
 let currentSpeed = 3;
 
 function loadExample(s) {
@@ -42,15 +42,22 @@ function resetAndRender() {
 function renderTape() {
   const tr = document.getElementById("tape-row");
   const ar = document.getElementById("arrow-row");
-  tr.innerHTML = ""; ar.innerHTML = "";
+  tr.innerHTML = "";
+  ar.innerHTML = "";
   tape.forEach((sym, i) => {
     let cls = "cell";
-    if (i === head)       cls += " head";
-    else if (sym === "X") cls += " marked-x";
-    else if (sym === "Y") cls += " marked-y";
-    else if (sym === "$") cls += " end-cell";
+    if (i === head) {
+      cls += " head";
+    } else if (sym === "X") {
+      cls += " marked-x";
+    } else if (sym === "Y") {
+      cls += " marked-y";
+    } else if (sym === "$") {
+      cls += " end-cell";
+    }
     const c = document.createElement("div");
-    c.className = cls; c.textContent = sym;
+    c.className = cls;
+    c.textContent = sym;
     tr.appendChild(c);
     const a = document.createElement("div");
     a.className = "arrow-cell";
@@ -125,8 +132,29 @@ function doReset() {
 
 function updateSpeed(val) {
   currentSpeed = parseInt(val);
-  const labels = { 1:"Very Slow", 2:"Slow", 3:"Medium", 4:"Fast", 5:"Very Fast" };
+const labels = { 1: "Very Slow", 2: "Slow", 3: "Medium", 4: "Fast", 5: "Very Fast" };
   document.getElementById("speed-label").textContent = labels[val];
 }
 
 window.onload = () => resetAndRender();
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById("theme-btn");
+  if (html.getAttribute("data-theme") === "dark") {
+    html.removeAttribute("data-theme");
+    btn.textContent = "🌙 Dark";
+    localStorage.setItem("theme", "light");
+  } else {
+    html.setAttribute("data-theme", "dark");
+    btn.textContent = "☀️ Light";
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+(function() {
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("theme-btn").textContent = "☀️ Light";
+  }
+})();

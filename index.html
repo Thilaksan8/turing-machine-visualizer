@@ -8,9 +8,10 @@
 </head>
 <body>
   <header>
-    <h1>Turing Machine Visualizer</h1>
-    <p class="subtitle">L = { a<sup>n</sup> b<sup>3n</sup> c<sup>m</sup> | n ≥ 1, m ≥ 0 }</p>
-  </header>
+  <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+  <h1>Turing Machine Visualizer</h1>
+  <p class="subtitle">L = { aⁿ b³ⁿ cᵐ | n ≥ 1, m ≥ 0 }</p>
+</header>
 
   <main>
     <section class="examples">
@@ -66,7 +67,11 @@
     </section>
   </main>
 
-  <script src="tm.js"></script>
+  <script src="tm.js"></script> 
   <script src="visualizer.js"></script>
+    <footer>
+        Built by <a href="https://github.com/Thilaksan8" target="_blank">Thilaksan</a> · 
+        <a href="https://github.com/Thilaksan8/turing-machine-visualizer" target="_blank">View on GitHub</a>
+    </footer>
 </body>
 </html>

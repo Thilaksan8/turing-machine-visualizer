@@ -30,11 +30,14 @@ const STATE_MSGS = {
   ha: "Accepted!",
 };
 
-let tape = [], head = 0, state = "Q0", stepNum = 0;
+let tape = [];
+let head = 0;
+let state = "Q0";
+let stepNum = 0;
 
 function initTM(input) {
-  tape  = input.split("").concat(["$"]);
-  head  = 0;
+  tape = input.split("").concat(["$"]);
+  head = 0;
   state = "Q0";
   stepNum = 0;
 }
