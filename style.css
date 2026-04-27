@@ -1,0 +1,187 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6fb;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+header {
+  background: #185FA5;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+header h1 { font-size: 2rem; font-weight: 600; }
+header .subtitle { margin-top: 0.4rem; font-size: 1.1rem; opacity: 0.85; }
+
+main {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.label { font-size: 14px; color: #555; }
+
+.ex-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+.ex-btn.valid  { border-color: #1D9E75; color: #0F6E56; }
+.ex-btn.valid:hover  { background: #E1F5EE; }
+.ex-btn.invalid { border-color: #E24B4A; color: #A32D2D; }
+.ex-btn.invalid:hover { background: #FCEBEB; }
+.ex-btn.active { background: #E6F1FB; border-color: #185FA5; color: #0C447C; }
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+.input-row input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 15px;
+  font-family: 'Courier New', monospace;
+  outline: none;
+}
+.input-row input:focus { border-color: #185FA5; }
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+.btn:hover { background: #f0f0f0; }
+.btn.primary { background: #185FA5; color: white; border-color: #185FA5; }
+.btn.primary:hover { background: #0C447C; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.tape-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.arrow-row, .tape-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  min-width: max-content;
+  margin: 0 auto;
+}
+.arrow-row { margin-bottom: 4px; }
+
+.cell, .arrow-cell {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+.cell {
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  transition: background 0.2s, border-color 0.2s;
+}
+.cell.head     { border: 2.5px solid #185FA5; background: #E6F1FB; color: #0C447C; }
+.cell.marked-x { background: #FAECE7; border-color: #D85A30; color: #993C1D; }
+.cell.marked-y { background: #E1F5EE; border-color: #1D9E75; color: #0F6E56; }
+.cell.end-cell { background: #f9f9f9; color: #aaa; border-color: #e0e0e0; }
+.arrow-cell { color: #185FA5; font-size: 18px; }
+
+.info-row {
+  display: flex;
+  gap: 1rem;
+}
+.info-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+}
+.info-label { font-size: 12px; color: #888; }
+.state-pill {
+  font-size: 18px;
+  font-weight: 600;
+  color: #185FA5;
+}
+.state-pill.accept { color: #1D9E75; }
+.state-pill.reject { color: #E24B4A; }
+.step-num { font-size: 18px; font-weight: 600; }
+
+.msg-box {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #185FA5;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #444;
+  font-family: 'Courier New', monospace;
+  min-height: 48px;
+}
+.msg-box.accept { border-left-color: #1D9E75; background: #E1F5EE; color: #0F6E56; }
+.msg-box.reject { border-left-color: #E24B4A; background: #FCEBEB; color: #A32D2D; }
+
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.speed-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.speed-row input { width: 100px; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 13px;
+  color: #555;
+}
+.leg-item { display: flex; align-items: center; gap: 6px; }
+.leg-box {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid;
+  display: inline-block;
+}
+.head-color { background: #E6F1FB; border-color: #185FA5; }
+.x-color    { background: #FAECE7; border-color: #D85A30; }
+.y-color    { background: #E1F5EE; border-color: #1D9E75; }
+.end-color  { background: #f9f9f9; border-color: #ccc; }
